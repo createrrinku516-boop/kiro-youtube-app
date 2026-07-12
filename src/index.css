@@ -1,0 +1,110 @@
+:root {
+  --yt-bg-main: #0a0a0b;
+  --yt-bg-secondary: rgba(255, 255, 255, 0.06);
+  --yt-bg-hover: rgba(255, 255, 255, 0.12);
+  --yt-text-primary: #ffffff;
+  --yt-text-secondary: #98989d;
+  --yt-border-color: rgba(255, 255, 255, 0.08);
+  --yt-brand-red: #FF3B30;
+  --yt-subscribe-bg: #ffffff;
+  --yt-subscribe-color: #0f0f0f;
+  --yt-subscribed-bg: rgba(255, 255, 255, 0.08);
+  --yt-subscribed-color: #ffffff;
+  --yt-bg-card: rgba(255, 255, 255, 0.03);
+  --yt-bg-pill: rgba(255, 255, 255, 0.06);
+  --yt-bg-pill-hover: rgba(255, 255, 255, 0.12);
+  --yt-skeleton-bg: rgba(255, 255, 255, 0.04);
+  --yt-skeleton-bg-active: rgba(255, 255, 255, 0.1);
+  --yt-accent-gradient: linear-gradient(90deg, #FF453A 0%, #FF2D55 100%);
+  --yt-apple-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --yt-glass-bg: rgba(18, 18, 19, 0.65);
+  --yt-glass-border: rgba(255, 255, 255, 0.08);
+  --yt-shadow-glow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='light'] {
+  --yt-bg-main: #f5f5f7;
+  --yt-bg-secondary: rgba(0, 0, 0, 0.04);
+  --yt-bg-hover: rgba(0, 0, 0, 0.08);
+  --yt-text-primary: #1d1d1f;
+  --yt-text-secondary: #86868b;
+  --yt-border-color: rgba(0, 0, 0, 0.08);
+  --yt-brand-red: #FF3B30;
+  --yt-subscribe-bg: #1d1d1f;
+  --yt-subscribe-color: #ffffff;
+  --yt-subscribed-bg: rgba(0, 0, 0, 0.05);
+  --yt-subscribed-color: #1d1d1f;
+  --yt-bg-card: rgba(255, 255, 255, 0.8);
+  --yt-bg-pill: rgba(0, 0, 0, 0.04);
+  --yt-bg-pill-hover: rgba(0, 0, 0, 0.08);
+  --yt-skeleton-bg: rgba(0, 0, 0, 0.04);
+  --yt-skeleton-bg-active: rgba(0, 0, 0, 0.08);
+  --yt-accent-gradient: linear-gradient(90deg, #FF3B30 0%, #FF2D55 100%);
+  --yt-glass-bg: rgba(255, 255, 255, 0.7);
+  --yt-glass-border: rgba(0, 0, 0, 0.08);
+  --yt-shadow-glow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--yt-bg-main);
+  color: var(--yt-text-primary);
+  transition: background-color 0.4s var(--yt-apple-easing), color 0.4s var(--yt-apple-easing);
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  scroll-behavior: auto; /* Disabled CSS smoothing to allow JS Apple scroll-easing to run at 60fps */
+}
+
+code {
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.App {
+  min-height: 100vh;
+  background-color: var(--yt-bg-main);
+  color: var(--yt-text-primary);
+  transition: background-color 0.4s var(--yt-apple-easing);
+}
+
+/* Custom premium smooth scrollbars (Apple style: narrow, pill, transparent track) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.3s ease;
+}
+
+[data-theme='light'] ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+[data-theme='light'] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
