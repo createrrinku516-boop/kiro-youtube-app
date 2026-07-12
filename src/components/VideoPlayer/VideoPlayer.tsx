@@ -580,16 +580,11 @@ const VideoPlayer = ({ video, isTheaterMode, onTheaterModeToggle, isLoading }) =
             console.warn('[VideoPlayer] stream-url API also failed:', streamUrlErr.message);
           }
 
-          // Last resort: keep proxy URL
-          const fallbackUrl = getProxyFallbackUrl(selectedQuality);
+          // Last resort: keep proxy URL or embed URL
+          const fallbackUrl = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`;
           setResolvedUrl(fallbackUrl);
 
-          const isVideoOnly = selectedQuality !== 'auto' && selectedQuality !== '360p';
-          if (isVideoOnly) {
-            setResolvedAudioUrl(getProxyFallbackUrl(selectedQuality, 'audio'));
-          } else {
-            setResolvedAudioUrl('');
-          }
+          setResolvedAudioUrl('');
         }
       } finally {
         if (active) {
@@ -1204,6 +1199,19 @@ const VideoPlayer = ({ video, isTheaterMode, onTheaterModeToggle, isLoading }) =
       >
         <div className="video-player-wrapper" onClick={handlePlayPause} onDoubleClick={handleDoubleClick}>
           {console.log('FINAL VIDEO SRC:', resolvedUrl)}
+          {resolvedUrl && resolvedUrl.includes('youtube.com/embed') ? (
+            <iframe
+              className="video-player-element"
+              src={resolvedUrl}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ border: 'none', width: '100%', height: '100%' }}
+              onLoad={() => {
+                setIsPlaying(true);
+                setLoadingStream(false);
+              }}
+            ></iframe>
+          ) : (
           <video
             ref={videoRef}
             src={resolvedUrl || undefined}
@@ -1264,6 +1272,7 @@ const VideoPlayer = ({ video, isTheaterMode, onTheaterModeToggle, isLoading }) =
             autoPlay={true}
             style={{ display: (video && video.status === 'Pending') || hasError ? 'none' : 'block' }}
           />
+          )}
 
           {resolvedAudioUrl && (
             <audio
