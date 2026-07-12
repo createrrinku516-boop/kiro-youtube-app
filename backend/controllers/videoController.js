@@ -9,7 +9,11 @@ const cache = require('../utils/cache');
 // Configure the dedicated local server buffer folder (Desktop/server)
 const SERVER_FOLDER_PATH = path.join(os.homedir(), 'Desktop', 'server');
 if (!fs.existsSync(SERVER_FOLDER_PATH)) {
-  fs.mkdirSync(SERVER_FOLDER_PATH, { recursive: true });
+  try {
+    fs.mkdirSync(SERVER_FOLDER_PATH, { recursive: true });
+  } catch (e) {
+    console.warn("Could not create SERVER_FOLDER_PATH (ignoring on Vercel):", e.message);
+  }
 }
 
 // Helper to prefetch YouTube stream URLs in the background to warm cache (Disabled to prevent EADDRINUSE, queue congestion and 1-minute playback delays)
