@@ -14,7 +14,11 @@ const initDb = () => {
     console.warn("Could not create db data directory:", e.message);
   }
   if (!fs.existsSync(FILE_PATH)) {
-    fs.writeFileSync(FILE_PATH, JSON.stringify({ videos: {}, comments: {} }, null, 2));
+    try {
+      fs.writeFileSync(FILE_PATH, JSON.stringify({ videos: {}, comments: {} }, null, 2));
+    } catch (e) {
+      console.warn("Could not write db.json init file:", e.message);
+    }
   }
 };
 

@@ -38,7 +38,13 @@ dotenv.config();
 connectDB();
 
 // Scan and ingest local videos
-runIngester();
+if (!process.env.VERCEL) {
+  try {
+    runIngester();
+  } catch (err) {
+    console.warn("Could not run ingester:", err.message);
+  }
+}
 
 // Trigger the background worker to process any pending uploads from last session
 const youtubeWorker = require('./utils/youtubeWorker');
