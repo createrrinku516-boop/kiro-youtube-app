@@ -7,11 +7,13 @@ const path = require('path');
 // Tell fluent-ffmpeg to use the static binary
 ffmpeg.setFfmpegPath(ffmpegStatic);
 
-const CACHE_DIR = path.join(__dirname, '../../cache/hls');
-
-// Ensure cache directory exists
-if (!fs.existsSync(CACHE_DIR)) {
-  fs.mkdirSync(CACHE_DIR, { recursive: true });
+const CACHE_DIR = path.join(__dirname, '../../videos/stream_cache');
+try {
+  if (!fs.existsSync(CACHE_DIR)) {
+    fs.mkdirSync(CACHE_DIR, { recursive: true });
+  }
+} catch (e) {
+  console.warn("Could not create stream cache directory:", e.message);
 }
 
 // Track active FFmpeg processes so we don't start multiple for the same video

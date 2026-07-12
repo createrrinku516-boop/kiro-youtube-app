@@ -6,9 +6,17 @@ if (dns.setDefaultResultOrder) {
 }
 const fs = require('fs');
 const path = require('path');
-const customTempDir = path.join(__dirname, 'tmp', 'yt-dlp-temp');
+const os = require('os');
+const customTempDir = process.env.VERCEL 
+  ? path.join(os.tmpdir(), 'yt-dlp-temp') 
+  : path.join(__dirname, 'tmp', 'yt-dlp-temp');
+  
 if (!fs.existsSync(customTempDir)) {
-  fs.mkdirSync(customTempDir, { recursive: true });
+  try {
+    fs.mkdirSync(customTempDir, { recursive: true });
+  } catch (err) {
+    console.warn("Could not create temp directory:", err.message);
+  }
 }
 process.env.TEMP = customTempDir;
 process.env.TMP = customTempDir;

@@ -12,8 +12,12 @@ ffmpeg.setFfprobePath(ffprobeStatic.path);
 
 // Output folder for processed video qualities
 const PROCESSED_DIR = path.join(__dirname, '../../videos/processed');
-if (!fs.existsSync(PROCESSED_DIR)) {
-  fs.mkdirSync(PROCESSED_DIR, { recursive: true });
+try {
+  if (!fs.existsSync(PROCESSED_DIR)) {
+    fs.mkdirSync(PROCESSED_DIR, { recursive: true });
+  }
+} catch (e) {
+  console.warn("Could not create PROCESSED_DIR:", e.message);
 }
 
 // Target resolutions for transcoding

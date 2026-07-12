@@ -6,8 +6,12 @@ const FILE_PATH = path.join(__dirname, '../data/db.json');
 let dbCache = null;
 
 const initDb = () => {
-  if (!fs.existsSync(path.dirname(FILE_PATH))) {
-    fs.mkdirSync(path.dirname(FILE_PATH), { recursive: true });
+  try {
+    if (!fs.existsSync(path.dirname(FILE_PATH))) {
+      fs.mkdirSync(path.dirname(FILE_PATH), { recursive: true });
+    }
+  } catch (e) {
+    console.warn("Could not create db data directory:", e.message);
   }
   if (!fs.existsSync(FILE_PATH)) {
     fs.writeFileSync(FILE_PATH, JSON.stringify({ videos: {}, comments: {} }, null, 2));
