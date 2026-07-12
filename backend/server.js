@@ -46,10 +46,17 @@ if (!process.env.VERCEL) {
   }
 }
 
-// Trigger the background worker to process any pending uploads from last session
-const youtubeWorker = require('./utils/youtubeWorker');
-youtubeWorker.triggerQueue();
-
+// Trigger the background worker to process any pending uploads from last session (Local PC only)
+if (!process.env.VERCEL) {
+  try {
+    // Hide from Vercel bundler using eval
+    const req = eval('require');
+    const youtubeWorker = req('./utils/youtubeWorker');
+    youtubeWorker.triggerQueue();
+  } catch (err) {
+    console.warn("Could not start youtube worker:", err.message);
+  }
+}
 const app = express();
 
 // Proxy YouTube assets needed for client-side PO token generation
