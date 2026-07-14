@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 const https = require('https');
 
 https.get('https://www.youtube.com/watch?v=muLA_Y-1iR0', (res) => {

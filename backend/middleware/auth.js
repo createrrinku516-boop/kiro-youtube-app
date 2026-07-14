@@ -1,4 +1,4 @@
-﻿const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const dbFirestore = require('../utils/dbFirestore');
 
 exports.protect = async (req, res, next) => {

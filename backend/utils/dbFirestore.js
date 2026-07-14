@@ -1,4 +1,4 @@
-﻿const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const { db, isRealFirebase } = require('../config/firebase');
 const { readDb, writeDb } = require('./dbJson');
 

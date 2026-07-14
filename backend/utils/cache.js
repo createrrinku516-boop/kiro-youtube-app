@@ -1,4 +1,4 @@
-﻿const NodeCache = require('node-cache');
+const NodeCache = require('node-cache');
 
 // Standard TTL: 5 minutes (300 seconds), Check period: 60 seconds
 const cache = new NodeCache({ stdTTL: 300, checkperiod: 60 });

@@ -1,4 +1,4 @@
-﻿async function init() {
+async function init() {
   const { Innertube } = await import('youtubei.js');
   return Innertube;
 }

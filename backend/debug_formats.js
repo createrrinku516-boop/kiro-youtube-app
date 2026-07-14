@@ -1,4 +1,4 @@
-﻿async function main() {
+async function main() {
   try {
     const { Innertube } = await import('youtubei.js');
     const yt = await Innertube.create({ generate_session_locally: true, retrieve_player: true });

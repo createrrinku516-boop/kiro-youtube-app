@@ -1,4 +1,4 @@
-﻿const { subscribeChannel } = require('./youtubeWebhookAgent');
+const { subscribeChannel } = require('./youtubeWebhookAgent');
 
 const CHANNELS = [
   'UCjvgGbPPn-FgYeguc5nxG4A',

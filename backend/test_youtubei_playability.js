@@ -1,4 +1,4 @@
-﻿// Test: print playability status in youtubei.js
+// Test: print playability status in youtubei.js
 async function main() {
   try {
     const { Innertube } = await import('youtubei.js');

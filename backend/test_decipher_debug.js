@@ -1,4 +1,4 @@
-﻿// Test: Get raw streaming data from youtubei.js including signature ciphers
+// Test: Get raw streaming data from youtubei.js including signature ciphers
 // and manually decipher using our own Node.js implementation
 async function main() {
   try {

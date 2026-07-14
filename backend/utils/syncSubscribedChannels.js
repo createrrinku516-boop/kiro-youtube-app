@@ -1,4 +1,4 @@
-﻿const { exec } = require('child_process');
+const { exec } = require('child_process');
 const path = require('path');
 
 // Configure custom local temp folder for yt-dlp to avoid PyInstaller decompression file-lock errors on Windows

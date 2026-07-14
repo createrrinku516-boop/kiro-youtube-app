@@ -1,4 +1,4 @@
-﻿// Test: Get raw streaming data from youtubei.js and check if it has cipher data
+// Test: Get raw streaming data from youtubei.js and check if it has cipher data
 async function main() {
   try {
     const { Innertube } = await import('youtubei.js');

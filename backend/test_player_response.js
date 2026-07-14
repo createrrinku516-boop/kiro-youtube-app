@@ -1,4 +1,4 @@
-﻿const http = require('http');
+const http = require('http');
 
 const req = http.request('https://kiro-youtube-app.vercel.app/api/videos/proxy/cors?url=' + encodeURIComponent('https://www.youtube.com/watch?v=f8rvVxDENIs'), (res) => {
   let d = '';

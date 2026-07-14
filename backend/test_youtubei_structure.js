@@ -1,4 +1,4 @@
-﻿// Test: print raw page JSON from youtubei.js
+// Test: print raw page JSON from youtubei.js
 async function main() {
   try {
     const { Innertube } = await import('youtubei.js');

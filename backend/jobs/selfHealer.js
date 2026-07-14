@@ -1,4 +1,4 @@
-﻿const youtubeDl = require('youtube-dl-exec');
+const youtubeDl = require('youtube-dl-exec');
 const fs = require('fs');
 
 /**

@@ -1,4 +1,4 @@
-﻿// Test: Get raw streaming data from youtubei.js including signature ciphers
+// Test: Get raw streaming data from youtubei.js including signature ciphers
 async function main() {
   try {
     const { Innertube } = await import('youtubei.js');

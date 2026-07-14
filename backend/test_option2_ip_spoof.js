@@ -1,4 +1,4 @@
-﻿// test_option2_ip_spoof.js
+// test_option2_ip_spoof.js
 const { Innertube } = require('youtubei.js');
 const spoofedIP = '8.8.8.8'; // Using Google's public DNS IP for testing
 

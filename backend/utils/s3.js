@@ -1,4 +1,4 @@
-﻿const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
 
 // S3 Client configuration. This works out-of-the-box for AWS S3, Cloudflare R2, Backblaze B2, MinIO.
 const s3Client = new S3Client({

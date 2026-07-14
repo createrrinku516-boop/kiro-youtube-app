@@ -1,4 +1,4 @@
-﻿// Test: inspect raw streaming data keys in youtubei.js response
+// Test: inspect raw streaming data keys in youtubei.js response
 async function main() {
   try {
     const { Innertube } = await import('youtubei.js');

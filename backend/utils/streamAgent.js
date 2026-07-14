@@ -1,4 +1,4 @@
-﻿const ffmpeg = require('fluent-ffmpeg');
+const ffmpeg = require('fluent-ffmpeg');
 const ffmpegStatic = require('ffmpeg-static');
 const ytdl = require('@distube/ytdl-core');
 const fs = require('fs');
