@@ -1,4 +1,4 @@
-const axios = require('axios');
+﻿const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const dbFirestore = require('./dbFirestore');
@@ -12,7 +12,7 @@ const aiBrain = require('../aiBrain');
 const subscribeChannel = async (channelId) => {
   try {
     const hubUrl = 'https://pubsubhubbub.appspot.com/subscribe';
-    const callbackUrl = process.env.WEB_CALLBACK_URL || 'http://localhost:5000/api/webhooks/youtube';
+    const callbackUrl = process.env.WEB_CALLBACK_URL || 'https://kiro-youtube-app.vercel.app/api/webhooks/youtube';
     const topicUrl = `https://www.youtube.com/xml/feeds/videos.xml?channel_id=${channelId}`;
 
     console.log(`[Webhook Agent] Subscribing to channel: ${channelId} at Hub...`);
@@ -101,7 +101,7 @@ const processPendingNotifications = async () => {
             }
             const localPath = path.join(imagesDir, `${videoId}_thumbnail.jpg`);
             fs.writeFileSync(localPath, imageBuffer);
-            finalThumbnailUrl = `http://localhost:5000/images/${videoId}_thumbnail.jpg`;
+            finalThumbnailUrl = `https://kiro-youtube-app.vercel.app/images/${videoId}_thumbnail.jpg`;
             console.log(`[Webhook Agent] Saved thumbnail locally (fallback): ${localPath}`);
           }
         } else {
@@ -112,7 +112,7 @@ const processPendingNotifications = async () => {
           }
           const localPath = path.join(imagesDir, `${videoId}_thumbnail.jpg`);
           fs.writeFileSync(localPath, imageBuffer);
-          finalThumbnailUrl = `http://localhost:5000/images/${videoId}_thumbnail.jpg`;
+          finalThumbnailUrl = `https://kiro-youtube-app.vercel.app/images/${videoId}_thumbnail.jpg`;
           console.log(`[Webhook Agent] Saved thumbnail locally: ${localPath}`);
         }
 
@@ -149,7 +149,7 @@ const processPendingNotifications = async () => {
           duration: '5:00', // Webhook XML does not specify duration, using default placeholder
           isShort: false,
           thumbnail: finalThumbnailUrl,
-          videoUrl: `http://localhost:5000/api/videos/stream/${videoId}`,
+          videoUrl: `https://kiro-youtube-app.vercel.app/api/videos/stream/${videoId}`,
           storageLocation: 'YouTube',
           status: 'Live',
           createdAt: new Date().toISOString()

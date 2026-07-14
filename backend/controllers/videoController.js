@@ -1,4 +1,4 @@
-const path = require('path');
+﻿const path = require('path');
 const fs = require('fs');
 const os = require('os');
 const crypto = require('crypto');
@@ -550,7 +550,7 @@ exports.uploadVideo = async (req, res) => {
     }
     
     // We don't have the final YouTube URL yet, so we set a placeholder processing URL
-    videoUrl = `http://localhost:5000/api/videos/stream/${videoId}`; 
+    videoUrl = `https://kiro-youtube-app.vercel.app/api/videos/stream/${videoId}`; 
     let finalStatus = 'Pending'; // Will be changed to 'Live' by youtubeWorker
 
     if (thumbnailFile) {
@@ -561,7 +561,7 @@ exports.uploadVideo = async (req, res) => {
         fs.mkdirSync(path.dirname(localThumbPath), { recursive: true });
       }
       fs.renameSync(thumbnailFile.path, localThumbPath);
-      thumbnailUrl = `http://localhost:5000/images/${encodeURIComponent(thumbFilename)}`;
+      thumbnailUrl = `https://kiro-youtube-app.vercel.app/images/${encodeURIComponent(thumbFilename)}`;
     } else {
       // Generate thumbnail automatically from the uploaded video
       try {
@@ -573,10 +573,10 @@ exports.uploadVideo = async (req, res) => {
         }
         const videoSrcPath = localVideoPath || videoFile.path;
         await generateThumbnail(videoSrcPath, thumbFilename, imagesDir);
-        thumbnailUrl = `http://localhost:5000/images/${thumbFilename}`;
+        thumbnailUrl = `https://kiro-youtube-app.vercel.app/images/${thumbFilename}`;
       } catch (thumbErr) {
         console.warn('[Upload Video] Failed to generate automatic thumbnail:', thumbErr.message);
-        thumbnailUrl = 'http://localhost:5000/images/image.png_202606102130.jpeg'; // fallback
+        thumbnailUrl = 'https://kiro-youtube-app.vercel.app/images/image.png_202606102130.jpeg'; // fallback
       }
     }
 
@@ -865,7 +865,7 @@ exports.uploadComplete = async (req, res) => {
         fs.mkdirSync(path.dirname(localThumbPath), { recursive: true });
       }
       fs.renameSync(thumbnailFile.path, localThumbPath);
-      thumbnailUrl = `http://localhost:5000/images/${encodeURIComponent(thumbFilename)}`;
+      thumbnailUrl = `https://kiro-youtube-app.vercel.app/images/${encodeURIComponent(thumbFilename)}`;
     } else {
       // Generate thumbnail automatically from the merged video
       try {
@@ -877,10 +877,10 @@ exports.uploadComplete = async (req, res) => {
         }
         const videoSrcPath = localVideoPath || tempMergedPath;
         await generateThumbnail(videoSrcPath, thumbFilename, imagesDir);
-        thumbnailUrl = `http://localhost:5000/images/${thumbFilename}`;
+        thumbnailUrl = `https://kiro-youtube-app.vercel.app/images/${thumbFilename}`;
       } catch (thumbErr) {
         console.warn('[Upload Complete] Failed to generate automatic thumbnail:', thumbErr.message);
-        thumbnailUrl = 'http://localhost:5000/images/image.png_202606102130.jpeg'; // fallback
+        thumbnailUrl = 'https://kiro-youtube-app.vercel.app/images/image.png_202606102130.jpeg'; // fallback
       }
     }
 
@@ -898,7 +898,7 @@ exports.uploadComplete = async (req, res) => {
       id: videoId,
       title,
       description: description || '',
-      videoUrl: `http://localhost:5000/api/videos/stream/${videoId}`,
+      videoUrl: `https://kiro-youtube-app.vercel.app/api/videos/stream/${videoId}`,
       thumbnail: thumbnailUrl,
       category: category || 'General',
       tags: [...new Set(tags)].slice(0, 6),

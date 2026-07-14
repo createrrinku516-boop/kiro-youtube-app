@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 const jsContent = fs.readFileSync(path.join(__dirname, 'videoController.js'), 'utf8');

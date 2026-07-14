@@ -1,4 +1,4 @@
-// youtube-dl-exec removed — replaced by lightweight youtubei.js (pure JS, zero CPU overhead)
+﻿// youtube-dl-exec removed — replaced by lightweight youtubei.js (pure JS, zero CPU overhead)
 const axios = require('axios');
 const http = require('http');
 const https = require('https');

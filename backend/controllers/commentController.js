@@ -1,4 +1,4 @@
-const dbFirestore = require('../utils/dbFirestore');
+﻿const dbFirestore = require('../utils/dbFirestore');
 const cache = require('../utils/cache');
 
 // 1. Fetch comments for a video

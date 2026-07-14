@@ -1,4 +1,4 @@
-const ytdl = require('@distube/ytdl-core');
+﻿const ytdl = require('@distube/ytdl-core');
 
 async function testClientSpoof() {
   const videoId = 'dQw4w9WgXcQ';

@@ -1,4 +1,4 @@
-// Test: inspect raw format data from youtubei.js
+﻿// Test: inspect raw format data from youtubei.js
 async function main() {
   try {
     const { Innertube } = await import('youtubei.js');

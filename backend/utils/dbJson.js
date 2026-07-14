@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 const FILE_PATH = path.join(__dirname, '../data/db.json');

@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { readDb, writeDb } = require('./dbJson');
@@ -130,7 +130,7 @@ const runIngester = () => {
     // Generate actual thumbnail from local video using FFmpeg instead of random YouTube image fallback
     const thumbFilename = `${videoId}_thumbnail.jpg`;
     const localThumbPath = path.join(IMAGES_DIR, thumbFilename);
-    const thumbnail = `http://localhost:5000/images/${thumbFilename}`;
+    const thumbnail = `https://kiro-youtube-app.vercel.app/images/${thumbFilename}`;
 
     if (!fs.existsSync(localThumbPath)) {
       try {
@@ -148,7 +148,7 @@ const runIngester = () => {
     if (db.videos[videoId]) {
       // Keep existing properties but update name/url if changed
       db.videos[videoId].title = title;
-      db.videos[videoId].videoUrl = `http://localhost:5000/videos/${encodeURIComponent(file)}`;
+      db.videos[videoId].videoUrl = `https://kiro-youtube-app.vercel.app/videos/${encodeURIComponent(file)}`;
       db.videos[videoId].thumbnail = thumbnail;
       db.videos[videoId].category = category;
       db.videos[videoId].tags = tags;
@@ -168,7 +168,7 @@ const runIngester = () => {
         filename: file,
         title: title,
         description: `Experience the amazing details of ${title}. Filmed in high quality, this video shows creative concepts, immersive environments, and stunning visualizations. Category: ${category}.`,
-        videoUrl: `http://localhost:5000/videos/${encodeURIComponent(file)}`,
+        videoUrl: `https://kiro-youtube-app.vercel.app/videos/${encodeURIComponent(file)}`,
         thumbnail: thumbnail,
         views: views,
         likes: likesCount,

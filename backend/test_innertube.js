@@ -1,4 +1,4 @@
-const { Innertube, UniversalCache } = require('youtubei.js');
+﻿const { Innertube, UniversalCache } = require('youtubei.js');
 async function test() {
   const yt = await Innertube.create({ cache: new UniversalCache(false) });
   const player = yt.session.player;

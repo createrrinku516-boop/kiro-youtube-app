@@ -1,4 +1,4 @@
-const ffmpeg = require('fluent-ffmpeg');
+﻿const ffmpeg = require('fluent-ffmpeg');
 const ffmpegStatic = require('ffmpeg-static');
 const ytdl = require('@distube/ytdl-core');
 const fs = require('fs');
@@ -28,7 +28,7 @@ const activeStreams = new Map();
 exports.getHlsUrl = async (videoId, youtubeId) => {
   const videoCacheDir = path.join(CACHE_DIR, videoId);
   const m3u8Path = path.join(videoCacheDir, 'index.m3u8');
-  const streamUrl = `http://localhost:5000/cache/hls/${videoId}/index.m3u8`;
+  const streamUrl = `https://kiro-youtube-app.vercel.app/cache/hls/${videoId}/index.m3u8`;
 
   // 1. If it's already fully cached or currently being processed, return the URL
   if (fs.existsSync(m3u8Path)) {

@@ -1,4 +1,4 @@
-async function fetchPlayer(clientName, videoId) {
+﻿async function fetchPlayer(clientName, videoId) {
   const url = `https://www.youtube.com/youtubei/v1/player`;
   
   // Minimal payload

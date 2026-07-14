@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 const os = require('os');
 const puppeteer = require('puppeteer');
@@ -651,7 +651,7 @@ const processLocalVideos = async () => {
       const updates = {
         status: 'Live',
         youtube_id: youtubeId,
-        videoUrl: `http://localhost:5000/api/videos/stream/${targetVideo.id}`,
+        videoUrl: `https://kiro-youtube-app.vercel.app/api/videos/stream/${targetVideo.id}`,
         uploadProgress: 100,
         uploadStatus: 'Live'
       };

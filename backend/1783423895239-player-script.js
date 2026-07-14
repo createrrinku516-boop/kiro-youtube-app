@@ -1,4 +1,4 @@
-var _yt_player={};(function(g){var window=this;/*
+﻿var _yt_player={};(function(g){var window=this;/*
 
  Copyright The Closure Library Authors.
  SPDX-License-Identifier: Apache-2.0

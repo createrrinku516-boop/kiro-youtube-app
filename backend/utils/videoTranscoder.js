@@ -1,4 +1,4 @@
-const ffmpeg = require('fluent-ffmpeg');
+﻿const ffmpeg = require('fluent-ffmpeg');
 const ffmpegStatic = require('ffmpeg-static');
 const path = require('path');
 const fs = require('fs');
@@ -104,7 +104,7 @@ const processVideoTranscoding = async (videoId, sourcePath, originalFilename) =>
       fs.mkdirSync(imagesDir, { recursive: true });
     }
     const localThumbPath = await generateThumbnail(sourcePath, thumbFilename, imagesDir);
-    let finalThumbnailUrl = `http://localhost:5000/images/${thumbFilename}`;
+    let finalThumbnailUrl = `https://kiro-youtube-app.vercel.app/images/${thumbFilename}`;
 
     // Upload thumbnail to S3 if bucket is configured
     if (process.env.S3_BUCKET) {
@@ -132,7 +132,7 @@ const processVideoTranscoding = async (videoId, sourcePath, originalFilename) =>
         // Transcode
         await transcodeToQuality(sourcePath, resLocalPath, res);
 
-        let finalVideoUrl = `http://localhost:5000/api/videos/stream/${videoId}?quality=${res.name}`;
+        let finalVideoUrl = `https://kiro-youtube-app.vercel.app/api/videos/stream/${videoId}?quality=${res.name}`;
 
         // Upload to S3 if configured
         if (process.env.S3_BUCKET) {

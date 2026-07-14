@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+﻿const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const dbFirestore = require('./dbFirestore');
@@ -99,7 +99,7 @@ const syncChannel = async (channelUrl = YOUTUBE_CHANNEL_URL) => {
                         duration: formattedDuration,
                         isShort: isShort,
                         thumbnail: bestThumbnail,
-                        videoUrl: `http://localhost:5000/api/videos/stream/${ytId}`,
+                        videoUrl: `https://kiro-youtube-app.vercel.app/api/videos/stream/${ytId}`,
                         storageLocation: 'YouTube',
                         status: 'Live',
                         createdAt: new Date().toISOString()

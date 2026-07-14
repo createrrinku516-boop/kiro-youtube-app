@@ -1,4 +1,4 @@
-// Test: Generate a PO token using youtube-po-token-generator and use it with youtubei.js
+﻿// Test: Generate a PO token using youtube-po-token-generator and use it with youtubei.js
 async function main() {
   try {
     const poTokenGen = require('youtube-po-token-generator');

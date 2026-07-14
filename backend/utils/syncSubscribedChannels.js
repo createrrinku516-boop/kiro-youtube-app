@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+﻿const { exec } = require('child_process');
 const path = require('path');
 
 // Configure custom local temp folder for yt-dlp to avoid PyInstaller decompression file-lock errors on Windows
@@ -302,7 +302,7 @@ const processSingleVideo = async (flatData, channelId, apiMetadata) => {
     duration,
     isShort,
     thumbnail: thumbnailUrl,
-    videoUrl: `http://localhost:5000/api/videos/stream/${videoId}`,
+    videoUrl: `https://kiro-youtube-app.vercel.app/api/videos/stream/${videoId}`,
     storageLocation: 'YouTube',
     status: 'Live',
     createdAt: new Date().toISOString()
